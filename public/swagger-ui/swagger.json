@@ -1,0 +1,393 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Licitação Backend API",
+        "description": "Documentação da API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "Ambiente de Desenvolvimento"
+        }
+    ],
+    "paths": {
+        "/api/licitacao?uasg=3354&pregao=45345/08": {
+        "get": {
+            "tags": [
+                "Licitacao"
+            ],
+            "summary": "Busca licitações por código uasg ou número do pregão",
+            "parameters": [
+                {
+                    "name": "uasg",
+                    "in": "path",
+                    "description": "Código uasg",
+                    "required": true,
+                    "schema": {
+                    "type": "string"
+                    }
+                },
+                {
+                    "name": "pregao",
+                    "in": "path",
+                    "description": "Número do pregão",
+                    "required": true,
+                    "schema": {
+                    "type": "string"
+                    }
+                }
+            ],
+            "responses": {
+            "200": {
+                "description": "Lista paginada de licitações",
+                "content": {
+                "application/json": {
+                    "schema": {
+                    "type": "object",
+                    "properties": {
+                        "current_page": {
+                        "type": "integer",
+                        "example": 1
+                        },
+                        "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                            "id": {
+                                "type": "integer",
+                                "example": 1
+                            },
+                            "codigo_uasg": {
+                                "type": "string",
+                                "example": "3354"
+                            },
+                            "numero_pregao": {
+                                "type": "string",
+                                "example": "45345/08"
+                            },
+                            "objeto": {
+                                "type": "string",
+                                "example": "Descrição do objeto"
+                            },
+                            "data_proposta": {
+                                "type": "string",
+                                "format": "date-time",
+                                "example": "2025-06-01 02:55:18"
+                            }
+                            }
+                        }
+                        },
+                        "first_page_url": {
+                        "type": "string",
+                        "example": "http://localhost:8080/api/licitacao?page=1"
+                        },
+                        "from": {
+                        "type": "integer",
+                        "example": 1
+                        },
+                        "last_page": {
+                        "type": "integer",
+                        "example": 2
+                        },
+                        "last_page_url": {
+                        "type": "string",
+                        "example": "http://localhost:8080/api/licitacao?page=2"
+                        },
+                        "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                            "url": {
+                                "type": "string",
+                                "nullable": true,
+                                "example": "http://localhost:8080/api/licitacao?page=2"
+                            },
+                            "label": {
+                                "type": "string",
+                                "example": "Next »"
+                            },
+                            "active": {
+                                "type": "boolean",
+                                "example": false
+                            }
+                            }
+                        }
+                        },
+                        "next_page_url": {
+                        "type": "string",
+                        "nullable": true,
+                        "example": "http://localhost:8080/api/licitacao?page=2"
+                        },
+                        "path": {
+                        "type": "string",
+                        "example": "http://localhost:8080/api/licitacao"
+                        },
+                        "per_page": {
+                        "type": "integer",
+                        "example": 5
+                        },
+                        "prev_page_url": {
+                        "type": "string",
+                        "nullable": true,
+                        "example": null
+                        },
+                        "to": {
+                        "type": "integer",
+                        "example": 5
+                        },
+                        "total": {
+                        "type": "integer",
+                        "example": 9
+                        }
+                    }
+                    }
+                }
+                }
+            }
+            }
+        }
+        },
+        "/api/licitacao": {
+        "get": {
+            "tags": [
+                "Licitacao"
+            ],
+            "summary": "Lista licitações com paginação",
+            "responses": {
+            "200": {
+                "description": "Lista paginada de licitações",
+                "content": {
+                "application/json": {
+                    "schema": {
+                    "type": "object",
+                    "properties": {
+                        "current_page": {
+                        "type": "integer",
+                        "example": 1
+                        },
+                        "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                            "id": {
+                                "type": "integer",
+                                "example": 1
+                            },
+                            "codigo_uasg": {
+                                "type": "string",
+                                "example": "3354"
+                            },
+                            "numero_pregao": {
+                                "type": "string",
+                                "example": "45345/08"
+                            },
+                            "objeto": {
+                                "type": "string",
+                                "example": "Descrição do objeto"
+                            },
+                            "data_proposta": {
+                                "type": "string",
+                                "format": "date-time",
+                                "example": "2025-06-01 02:55:18"
+                            }
+                            }
+                        }
+                        },
+                        "first_page_url": {
+                        "type": "string",
+                        "example": "http://localhost:8080/api/licitacao?page=1"
+                        },
+                        "from": {
+                        "type": "integer",
+                        "example": 1
+                        },
+                        "last_page": {
+                        "type": "integer",
+                        "example": 2
+                        },
+                        "last_page_url": {
+                        "type": "string",
+                        "example": "http://localhost:8080/api/licitacao?page=2"
+                        },
+                        "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                            "url": {
+                                "type": "string",
+                                "nullable": true,
+                                "example": "http://localhost:8080/api/licitacao?page=2"
+                            },
+                            "label": {
+                                "type": "string",
+                                "example": "Next »"
+                            },
+                            "active": {
+                                "type": "boolean",
+                                "example": false
+                            }
+                            }
+                        }
+                        },
+                        "next_page_url": {
+                        "type": "string",
+                        "nullable": true,
+                        "example": "http://localhost:8080/api/licitacao?page=2"
+                        },
+                        "path": {
+                        "type": "string",
+                        "example": "http://localhost:8080/api/licitacao"
+                        },
+                        "per_page": {
+                        "type": "integer",
+                        "example": 5
+                        },
+                        "prev_page_url": {
+                        "type": "string",
+                        "nullable": true,
+                        "example": null
+                        },
+                        "to": {
+                        "type": "integer",
+                        "example": 5
+                        },
+                        "total": {
+                        "type": "integer",
+                        "example": 9
+                        }
+                    }
+                    }
+                }
+                }
+            }
+            }
+        }
+        },
+        "/api/licitacao/importacao": {
+            "get": {
+                "tags": [
+                    "Licitacao"
+                ],
+                "summary": "Importar nova licitação",
+                "responses": {
+                "201": {
+                    "description": "Licitação importada com sucesso",
+                    "content": {
+                    "application/json": {
+                        "schema": {
+                        "type": "object",
+                        "properties": {
+                            "message": {
+                            "type": "string",
+                            "example": "Licitação importada com sucesso"
+                            },
+                            "data": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                "type": "integer",
+                                "example": 10
+                                },
+                                "codigo_uasg": {
+                                "type": "string",
+                                "example": "3354"
+                                },
+                                "numero_pregao": {
+                                "type": "string",
+                                "example": "45345/08"
+                                },
+                                "objeto": {
+                                "type": "string",
+                                "example": "Descrição do objeto"
+                                },
+                                "data_proposta": {
+                                "type": "string",
+                                "format": "date-time",
+                                "example": "2025-06-01 02:55:18"
+                                }
+                            }
+                            }
+                        }
+                        }
+                    }
+                    }
+                },
+                "400": {
+                    "description": "Erro de importacao"
+                }
+                }
+            }
+        },
+        "/api/licitacao/{id}/visualizado": {
+            "put": {
+                "tags": ["Licitacao"],
+                "summary": "Atualiza o status de visualizado de uma licitação",
+                "description": "Marca a licitação como visualizada ou não visualizada.",
+                "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                    "type": "integer"
+                    },
+                    "description": "ID da licitação"
+                }
+                ],
+                "requestBody": {
+                "required": true,
+                "content": {
+                    "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                        "visualizado": {
+                            "type": "boolean",
+                            "example": true
+                        }
+                        },
+                        "required": ["visualizado"]
+                    }
+                    }
+                }
+                },
+                "responses": {
+                "200": {
+                    "description": "Atualização realizada com sucesso",
+                    "content": {
+                    "application/json": {
+                        "schema": {
+                        "type": "object",
+                        "properties": {
+                            "message": {
+                            "type": "string",
+                            "example": "Visualização atualizada com sucesso."
+                            }
+                        }
+                        }
+                    }
+                    }
+                },
+                "404": {
+                    "description": "Licitação não encontrada"
+                },
+                "500": {
+                    "description": "Erro interno do servidor"
+                }
+                }
+            }
+            }
+  
+    },
+    "tags": [
+        {
+            "name": "Licitacao",
+            "description": "Licitação"
+        }
+    ]
+}
