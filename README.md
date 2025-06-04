@@ -109,3 +109,17 @@ http://localhost:8080/api/docs
 
 ### Ambiente de DEV
 - **Backend:** [http://localhost:8080](http://localhost:8080)
+
+### 📂 Proatividade e melhoria contínua
+
+1. Implementação de Paginação e Busca Assíncrona
+
+Reduz significativamente a carga de memória e processamento no servidor e no cliente.
+
+Diminui o tempo de resposta da API.
+
+2. Armazenamento em Cache das Licitações (Cache por Dia)
+
+Armazenar os dados das licitações extraídos por data em cache ex: Redis
+
+A página do ComprasNet é baseada em consultas por data, e os dados para um determinado dia e acredito que não mudam.
